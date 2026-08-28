@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-sky: linear-gradient(180deg, #BAE6FD 0%, #E0F2FE 35%, #F0F9FF 70%, #FFFFFF 100%);
+  --card-glass: rgba(255, 255, 255, 0.85);
+  --border-light: rgba(255, 255, 255, 0.9);
+  --shadow-cloud: 0 20px 40px -15px rgba(14, 165, 233, 0.15), 0 0 15px 0 rgba(255, 255, 255, 0.5);
+  
+  --primary-dark: #0F172A;
+  --sky-brand: #0284C7;
+  --sky-light: #E0F2FE;
+  
+  --text-dark: #0F172A;
+  --text-muted: #475569;
+  --text-subtle: #94A3B8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-sky);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Floating Glass Pills & Cards */
+.pill-header {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.12);
+}
+
+.cloud-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px -10px rgba(14, 165, 233, 0.1), 0 0 20px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cloud-card:hover {
+  box-shadow: 0 25px 60px -10px rgba(14, 165, 233, 0.16), 0 0 25px 0 rgba(255, 255, 255, 0.9);
+}
+
+.pill-input {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  color: #0F172A;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.06);
+  transition: all 0.2s ease;
+}
+
+.pill-input:focus {
+  outline: none;
+  border-color: #0284C7;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+/* Button Styles */
+.btn-dark-pill {
+  background: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+}
+
+.btn-dark-pill:hover {
+  background: #1E293B;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.35);
+}
+
+.btn-white-pill {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  padding: 10px 22px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.btn-white-pill:hover {
+  background: #F8FAFC;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-sky {
+  background: #F0F9FF;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
+}
+
+.badge-emerald {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+/* Table Design */
+.cloud-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid #F1F5F9;
+  background: #FFFFFF;
+}
+
+.cloud-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.cloud-table th {
+  background: #F8FAFC;
+  color: #475569;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-bottom: 1px solid #E2E8F0;
+  white-space: nowrap;
+}
+
+.cloud-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #F1F5F9;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+.cloud-table tbody tr:hover {
+  background: #F0F9FF;
+}
+
+/* Mono Code Block */
+.cloud-code-block {
+  background: #0F172A;
+  border-radius: 16px;
+  padding: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  color: #38BDF8;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.mono-font {
+  font-family: 'JetBrains Mono', monospace;
+}
