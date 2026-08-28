@@ -87,6 +87,15 @@ def startup_event():
         seed_database(engine)
         logger.info("Default sample database initialized and seeded.")
 
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "CloudKit AI Data Analyst REST API Engine",
+        "docs": "/docs",
+        "health": "/api/health"
+    }
+
 @app.get("/api/health")
 def health():
     return {"status": "online", "dialect": get_dialect_name()}
