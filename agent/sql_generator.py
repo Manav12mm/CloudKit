@@ -196,8 +196,11 @@ class SQLGenerator:
 
             if is_custom_schema or target_name_col:
                 cols = [f"`{c['name']}`" for c in self.raw_schema.get(target_table, {}).get("columns", []) if not c['name'].startswith("Unnamed")]
-                col_str = ", ".join(cols[:5]) if cols else "*"
-                return f"SELECT {col_str} FROM `{target_table}` WHERE {where_str};"
+                col_formatted = ",\n  ".join(cols[:5]) if cols else "*"
+                return f"""SELECT 
+  {col_formatted} 
+FROM `{target_table}` 
+WHERE {where_str};"""
             else:
                 return f"""SELECT 
     e.employee_name,
