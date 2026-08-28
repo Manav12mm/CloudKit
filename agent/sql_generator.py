@@ -119,15 +119,15 @@ class SQLGenerator:
         if letter_match and any(w in lowered for w in ["naam", "name", "nmae", "nam", "bande", "banda", "log", "student", "employee", "wala", "wale", "chalu", "start", "chahiye"]):
             letter_prefix = letter_match.group(1).upper()
 
-        # 2. Reverse match (e.g. "chalu m se", "naam m se", "name starting with m")
+        # 2. Reverse match (e.g. "chalu m se", "naam m se", "names with m", "name starting with m", "names with letter m")
         if not letter_prefix:
-            reverse_match = re.search(r"(?:naam|name|nmae|nam|nama|names|starts?|starting|begins?|chalu)\s+(?:starting\s+with|starts?\s+with|is|se|ka|ke|chalu)?\s*\b([a-zA-Z])\b", lowered)
+            reverse_match = re.search(r"(?:naam|name|nmae|nam|nama|names|starts?|starting|begins?|chalu)\s+(?:starting\s+with|starts?\s+with|with\s+letter|with|having|containing|like|is|se|ka|ke|chalu)?\s*\b([a-zA-Z])\b", lowered)
             if reverse_match:
                 letter_prefix = reverse_match.group(1).upper()
 
-        # 3. Match general "starts with M" / "starting with M" patterns
+        # 3. Match general "starts with M" / "starting with M" / "with M" / "with letter M" patterns
         if not letter_prefix:
-            start_match = re.search(r"(?:starts?|starting|begins?|beginning)\s+with\s+\b([a-zA-Z])\b", lowered)
+            start_match = re.search(r"(?:starts?|starting|begins?|beginning|with)\s+(?:with|letter)?\s*\b([a-zA-Z])\b", lowered)
             if start_match:
                 letter_prefix = start_match.group(1).upper()
 
