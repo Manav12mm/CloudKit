@@ -7,7 +7,7 @@ import SqlViewer from './components/SqlViewer';
 import SentimentViewer from './components/SentimentViewer';
 import { Sparkles, ArrowRight, ShieldCheck, Database, Table, Code2, Cloud, CheckCircle2, Globe } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 export default function App() {
   const [schemaData, setSchemaData] = useState(null);
